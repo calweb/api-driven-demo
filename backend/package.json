@@ -1,8 +1,17 @@
 {
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -r dotenv/config app.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "jsonwebtoken": "^7.4.3",
-    "mongoose": "^4.11.9"
+    "mongoose": "^4.11.9",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.11.0"
   }
 }

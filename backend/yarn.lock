@@ -64,6 +64,10 @@ array-unique@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
+asap@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/asap/-/asap-1.0.0.tgz#b2a45da5fdfa20b0496fc3768cc27c12fa916a7d"
+
 asn1@~0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
@@ -204,6 +208,10 @@ chalk@^1.0.0:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
+character-parser@~1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/character-parser/-/character-parser-1.0.2.tgz#55384d6afcf8c6b9dd483e8347646a790e4545e7"
+
 chokidar@^1.4.3:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
@@ -249,6 +257,14 @@ configstore@^1.0.0:
     uuid "^2.0.1"
     write-file-atomic "^1.1.2"
     xdg-basedir "^2.0.0"
+
+connect-roles@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/connect-roles/-/connect-roles-3.1.2.tgz#732bc627f857966dffd1797274e2ae760b072fea"
+  dependencies:
+    ert "^1.0.1"
+    path-to-regexp "^1.0.1"
+    promise "^6.0.1"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
@@ -368,6 +384,12 @@ end-of-stream@^1.0.0:
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.0.tgz#7a90d833efda6cfa6eac0f4949dbb0fad3a63206"
   dependencies:
     once "^1.4.0"
+
+ert@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ert/-/ert-1.0.1.tgz#20043c748d6783b5f6b8359163892ef310938094"
+  dependencies:
+    character-parser "~1.0.0"
 
 es6-promise@3.2.1:
   version "3.2.1"
@@ -782,6 +804,10 @@ is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
 
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+
 isarray@1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
@@ -1035,7 +1061,7 @@ minimist@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moment@2.x.x:
+moment@2.x.x, moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -1259,6 +1285,12 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
 
+path-to-regexp@^1.0.1:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
+  dependencies:
+    isarray "0.0.1"
+
 pause-stream@0.0.11:
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/pause-stream/-/pause-stream-0.0.11.tgz#fe5a34b0cbce12b5aa6a2b403ee2e73b602f1445"
@@ -1290,6 +1322,12 @@ preserve@^0.2.0:
 process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
+
+promise@^6.0.1:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-6.1.0.tgz#2ce729f6b94b45c26891ad0602c5c90e04c6eef6"
+  dependencies:
+    asap "~1.0.0"
 
 proxy-addr@~1.1.5:
   version "1.1.5"

@@ -1,48 +1,41 @@
 const router = require('express').Router()
 const User = require('./model')
 const {
-  getAllPeople,
-  getPerson,
-  getPersonByUsername,
-  getPersonByEmail,
-  addPerson,
-  deletePerson
+  getAllUser,
+  getUser,
+  getUserByUsername,
+  getUserByEmail,
+  addUser,
+  deleteUser
 } = require('./dal')
 
 router
   .route('/')
   .get(async ({ query }, res) => {
-    console.log('QUERYSTRING!!!!!!!', query)
     const { email, username } = query
     if (email || username) {
-      const [ person ] = email
-        ? (await getPersonByEmail(email))
-        : (await getPersonByUsername(username))
-      person.title = person.name
-      return res.render('show', person)
+      const [ user ] = email
+        ? (await getUserByEmail(email))
+        : (await getUserByUsername(username))
+      return res.status(200).json(user)
     }
-    const people = await getAllPeople()
-    res.render('list', { people, title: 'People List' })
+    const people = await getAllUser()
+    res.status(200).json(people)
   })
   .post(async ({ body }, res) => {
-    const result = await addPerson(body)
-    res.send(result)
+    const result = await addUser(body)
+    res.json(result)
   })
-
-router.route('/new').get(isAuthenticated, (req, res) => {
-  console.log(req.session)
-  res.render('add')
-})
 
 router
-  .route('/:personId')
+  .route('/:userId')
   .get(async ({ params }, res) => {
-    const [ person ] = await getPerson(params.personId)
-    res.render('show', person)
+    const [ user ] = await getUser(params.userId)
+    res.status(200).json(user)
   })
   .delete(async ({ params }, res) => {
-    const result = await deletePerson(params.personId)
-    res.send(result)
+    const result = await deleteUser(params.userId)
+    res.json(result)
   })
 
 module.exports = router

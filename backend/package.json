@@ -7,9 +7,11 @@
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "connect-roles": "^3.1.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
     "jsonwebtoken": "^7.4.3",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2"
   },

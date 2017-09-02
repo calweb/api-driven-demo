@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./frontend/:/app/
+    environment:
+      DB_URL: 'http://localhost:5984'
+      PORT: '3000'
+    ports:
+      - "3000:3000"
+    command: npm start
+    networks:
+      - tiy
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./backend/:/app/
+    environment:
+      DB_URL: 'http://localhost:5984'
+      PORT: '8000'
+    ports:
+      - "8000:8000"
+    depends_on:
+      - "db"
+    command: npm start
+    networks:
+      - tiy
+  db:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    networks:
+      - tiy
+
+networks:
+  tiy:
+    driver: bridge

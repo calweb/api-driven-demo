@@ -1,15 +1,12 @@
 FROM node:8.0.0-alpine
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /src
+COPY app/package.json /src
+WORKDIR /src
 
-# Install app dependencies
-COPY ./package.json /usr/src/app
 RUN npm install
+COPY app/ /src
 
-# Bundle app source
-COPY . /usr/src/app
-
+CMD ["npm","start"]
 EXPOSE 3000
-CMD [ "npm", "start" ]

@@ -4,7 +4,8 @@
 
 <table>
 <tr>
-<td>Package</td><td></td>
+<td>Package</td>
+<td></td>
 </tr>
 <tr>
 <td>Description</td>

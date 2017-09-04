@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
     .json({ status: 'ok', message: 'Welcome to the Api Driven Demo!' })
 })
 
-app.use('api/users', userRoutes)
-app.use('api/auth', authRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/auth', authRoutes)
 
 app.listen(app.get('port'), function () {
   console.log(`Server listening on port ${app.get('port')}`)

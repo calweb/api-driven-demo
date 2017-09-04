@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('./model')
 const {
-  getAllUser,
+  getAllUsers,
   getUser,
   getUserByUsername,
   getUserByEmail,
@@ -19,7 +19,7 @@ router
         : (await getUserByUsername(username))
       return res.status(200).json(user)
     }
-    const people = await getAllUser()
+    const people = await getAllUsers()
     res.status(200).json(people)
   })
   .post(async ({ body }, res) => {

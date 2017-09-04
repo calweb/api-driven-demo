@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { createToken } = require('./helpers')
-
+const User = require('../users/model')
 router.route('/login').post((req, res) => {
   User.findOne({ email: req.body.email }, '+password', function (
     err,

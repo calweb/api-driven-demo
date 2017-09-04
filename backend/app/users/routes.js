@@ -8,9 +8,11 @@ const {
   addUser,
   deleteUser
 } = require('./usersDal')
+const { ensureAuthenticated } = require('../auth')
 
 router
   .route('/')
+  .all(ensureAuthenticated)
   .get(async ({ query }, res) => {
     const { email, username } = query
     if (email || username) {
@@ -29,6 +31,7 @@ router
 
 router
   .route('/:userId')
+  .all(ensureAuthenticated)
   .get(async ({ params }, res) => {
     const [ user ] = await getUser(params.userId)
     res.status(200).json(user)

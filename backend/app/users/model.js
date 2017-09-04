@@ -30,5 +30,9 @@ UserSchema.methods.comparePassword = (password, dbPass, done) => {
   })
 }
 
+UserSchema.statics.findByEmail = function(email) {
+  return this.model('User').find({ email: email })
+}
+
 const User = mongoose.model('User', UserSchema)
 module.exports = User

@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://db:27017/peopledb', {
 })
 
 function getAllUsers () {
-  return User.find().exec()
+  return User.find()
 }
 
 function getUser (personId) {
@@ -22,7 +22,7 @@ function getUserByUsername (username) {
   })
 }
 function getUserByEmail (email) {
-  return User.findByEmail(email).exec()
+  return User.findByEmail(email)
 }
 
 function addUser (newUser) {

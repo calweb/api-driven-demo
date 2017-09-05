@@ -23,7 +23,7 @@ services:
     volumes:
       - ./backend/:/app/
     environment:
-      DB_URL: 'http://localhost:5984'
+      NODE_ENV: 'dev'
       PORT: '8000'
     ports:
       - "8000:8000"

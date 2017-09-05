@@ -3,8 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Example Frontend for api app</title>
+    <style media="screen">
+    form {
+      display:none;
+    }
+      .active {
+        display: block
+      }
+    </style>
   </head>
   <body>
     <h1>Hello World</h1>
+    <form id="loginForm" class="active">
+      <input type="text" name="email" placeholder="Email" value="">
+      <input type="password" name="password" placeholder="Password" value="">
+      <button type="submit" name="button">Login</button>
+    </form>
+
+    <button type="button" name="showUsers">show users</button>
+    <div id="users">
+
+    </div>
+    <script src="./main.js" charset="utf-8"></script>
   </body>
 </html>

@@ -9,14 +9,23 @@ const user = new ConnectRoles({
   }
 })
 
-user.use('access user resources', function (req, res) {
-  if (req.role === 'user' || req.role === 'admin') {
+user.use('access member resources', function (req, res) {
+  if (
+    req.user.roles.indexOf('member') > -1 ||
+      req.user.roles.indexOf('admin') > -1
+  ) {
+    return true
+  }
+})
+
+user.use('access special auditor resources', function (req, res) {
+  if (req.user.roles.indexOf('auditor') > -1) {
     return true
   }
 })
 
 user.use('access admin resources', function (req, res) {
-  if (req.role === 'admin') {
+  if (req.user.roles.indexOf('admin') > -1) {
     return true
   }
 })

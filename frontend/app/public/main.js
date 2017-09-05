@@ -1,19 +1,65 @@
 // vanilla js until we framework it up
+console.log('its working!!! ')
+const baseUrl = 'http://localhost:8000/api';
 
-const baseUrl = 'http://localhost:8000/api'
+(function () {
+  const loginForm = document.querySelector('#loginForm')
+
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault()
+    const emailInput = event.target.querySelector('input[name="email"]')
+    const passwordInput = event.target.querySelector('input[name="password"]')
+    const creds = { email: emailInput.value, password: passwordInput.value }
+
+    login(creds).then(function (res) {
+      console.log('its logging int!!', res)
+      setToken(res.token)
+      emailInput.value = ''
+      passwordInput.value = ''
+      event.target.classList = ''
+    })
+  })
+
+  const getUsrBtn = document.querySelector('button[name="showUsers"]')
+  getUsrBtn.addEventListener('click', function (event) {
+    event.preventDefault()
+    const usersDom = document.querySelector('#users')
+    getUsers().then(function (usrs) {
+      usersDom.innerHTML = createManyUsersHTML(usrs)
+    })
+  })
+})()
 
 // auth methods
 function login (creds) {
-  return fetch(`${baseUrl}/api/auth/login`, {
+  return fetch(`${baseUrl}/auth/login`, {
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify(creds)
   })
+    .then(response => response.json())
+    .catch(err => console.log(err))
 }
 
 function logout () {
   removeToken()
   window.location.path = '/'
+}
+
+function createUserHTML (userObj) {
+  return `
+   <div>
+    <h3>${userObj.name}</h3>
+    <img src="${userObj.picture}" />
+    </div>
+  `
+}
+function createManyUsersHTML (usersArr) {
+  let html = ''
+  usersArr.forEach(function (usr) {
+    html += createUserHTML(usr)
+  })
+  return html
 }
 
 // user methods

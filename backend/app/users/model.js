@@ -30,7 +30,7 @@ UserSchema.methods.comparePassword = (password, dbPass, done) => {
   })
 }
 
-UserSchema.statics.findByEmail = function(email) {
+UserSchema.statics.findByEmail = function (email) {
   return this.model('User').find({ email: email })
 }
 

@@ -41,9 +41,10 @@ Then, for your backend:
 ```
 cd backend/
 npm install
-npm start
+npm run dev // to use nodemon with dotenv
 // will start backend on http://localhost:8000
 ```
+NOTE: If running dev, you will want to create a `.env` file to add your environment variables, `TOKEN_SECRET`, `MONGO_URI`
 
 For frontend (which is served by express static in nodejs)
 
@@ -53,8 +54,6 @@ npm install
 npm start
 // will server static frontend on http://localhost:3000
 ```
-
-
 
 ## Information
 

@@ -57,7 +57,8 @@ router
   .route('/:userId')
   .all(ensureAuthenticated)
   .get(async ({ params }, res) => {
-    const [ user ] = await getUser(params.userId)
+    console.log('params', params)
+    const user = await getUser(params.userId)
     res.status(200).json(user)
   })
   .delete(roles.can('access admin resources'), async ({ params }, res) => {

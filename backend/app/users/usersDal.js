@@ -11,9 +11,7 @@ function getAllUsers () {
 }
 
 function getUser (personId) {
-  return User.find({ _id: personId }).exec().catch(function (err) {
-    console.log(err)
-  })
+  return User.findById(personId).populate('posts')
 }
 
 function getUserByUsername (username) {

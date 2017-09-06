@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema({
   picture: { type: String },
   password: { type: String, select: false },
   name: { type: String },
-  roles: { type: Array }
+  roles: { type: Array },
+  posts: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ]
 })
 
 UserSchema.pre('save', function (next) {

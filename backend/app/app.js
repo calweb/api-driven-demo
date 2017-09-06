@@ -4,6 +4,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const { routes: userRoutes } = require('./users')
 const { routes: authRoutes } = require('./auth')
+const { routes: postRoutes } = require('./posts')
 
 const app = express()
 app.set('port', process.env.PORT || 8000)
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', userRoutes)
+app.use('/api/posts', postRoutes)
 app.use('/api/auth', authRoutes)
 
 app.listen(app.get('port'), function () {
